@@ -2,6 +2,7 @@ package pl.coderslab.entity;
 
 import com.mysql.cj.x.protobuf.MysqlxPrepare;
 import pl.coderslab.util.DbUtil;
+import org.mindrot.jbcrypt.BCrypt;
 
 import java.sql.*;
 
@@ -18,12 +19,16 @@ public class UserDao {
     private static final String FIND_ALL_USERS_QUERY =
             "SELECT * FROM users";
 
+    public String hashPassword(String password) {
+        return BCrypt.hashpw(password, BCrypt.gensalt());
+    }
+
     public User create(User user) {
         try (Connection conn = DbUtil.getConnection()) {
             PreparedStatement preparedStatement = conn.prepareStatement(CREATE_USER_QUERY, Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setString(1, user.getUserName());
             preparedStatement.setString(2, user.getEmail());
-            preparedStatement.setString(3, user.getPassword());
+            preparedStatement.setString(3, hashPassword(user.getPassword()));
 
             preparedStatement.executeUpdate();
 
@@ -36,6 +41,8 @@ public class UserDao {
             throw new RuntimeException(e);
         }
     }
+
+
 
     public User read(int userId) {
         try (Connection conn = DbUtil.getConnection()) {
@@ -64,7 +71,7 @@ public class UserDao {
             PreparedStatement preparedStatement = conn.prepareStatement(UPDATE_USER_QUERY);
             preparedStatement.setString(1, user.getUserName());
             preparedStatement.setString(2, user.getEmail());
-            preparedStatement.setString(3, user.getPassword());
+            preparedStatement.setString(3, hashPassword(user.getPassword()));
             preparedStatement.setInt(4, user.getId());
 
             preparedStatement.executeUpdate();
