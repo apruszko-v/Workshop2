@@ -17,7 +17,7 @@ public class User {
 
     }
 
-    //gettery
+
     public int getId() {
         return id;
     }
@@ -34,7 +34,8 @@ public class User {
         return password;
     }
 
-    //    settery
+
+
     public void setId(int id) {
         this.id = id;
     }

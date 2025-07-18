@@ -7,7 +7,6 @@ import org.mindrot.jbcrypt.BCrypt;
 import java.sql.*;
 
 public class UserDao {
-    //    CRUD i findAll
     private static final String CREATE_USER_QUERY =
             "INSERT INTO users(username, email, password) VALUES (?, ?, ?)";
     private static final String READ_USER_QUERY =

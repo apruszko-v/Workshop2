@@ -11,9 +11,14 @@ public class MainDao {
         User user = new User();
 
 //  dodawanie nowego usera do bazy
-//        user.setUserName("an");
-//        user.setEmail("apruszko@v.pl");
-//        user.setPassword("pass");
+//        user.setUserName("Anna");
+//        user.setEmail("anna@vp.pl");
+//        user.setPassword("haslo");
+//        userDao.create(user);
+
+//        user.setUserName("Kasia");
+//        user.setEmail("kasia@vp.pl");
+//        user.setPassword("hasloo");
 //        userDao.create(user);
 
 //  czytanie obiektu user
@@ -21,17 +26,17 @@ public class MainDao {
 //        System.out.println(read);
 
 //  update usera
-//        User userToUpdate = userDao.read(3);
-//        userToUpdate.setUserName("martaa");
-//        userToUpdate.setEmail("apruszkoapruszko@vp.pl");
-//        userToUpdate.setPassword("coderslabb");
+//        User userToUpdate = userDao.read(2);
+//        userToUpdate.setUserName("marta");
+//        userToUpdate.setEmail("marta@vp.pl");
+//        userToUpdate.setPassword("coderslab");
 //        userDao.update(userToUpdate);
 
 //  findAll
 //        User secondUser = new User();
 //        secondUser.setUserName("marta");
-//        secondUser.setEmail("marta@v.pl");
-//        secondUser.setPassword("password");
+//        secondUser.setEmail("marta@vp.pl");
+//        secondUser.setPassword("coderslab");
 //
 //        userDao.create(secondUser);
 //
